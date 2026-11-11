@@ -54,7 +54,7 @@ Upper-Secondary Student in the **TOP STAR Special Science-Math Classroom Program
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/<your-username>/prompiriya-ai-portfolio.git
+   git clone https://github.com/brkg344-pixel/prompiriya-ai-portfolio.git
    cd prompiriya-ai-portfolio
    ```
 
