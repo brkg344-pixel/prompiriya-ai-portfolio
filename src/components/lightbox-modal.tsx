@@ -33,21 +33,21 @@ export function LightboxModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-void/90 backdrop-blur-2xl flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-void/90 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-4"
       role="dialog"
       aria-modal="true"
       onClick={onClose}
     >
       <div
-        className="max-w-4xl w-full glass-panel rounded-3xl overflow-hidden border border-white/15 shadow-2xl flex flex-col max-h-[90vh]"
+        className="max-w-4xl w-full glass-panel rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-2xl flex flex-col max-h-[88dvh] sm:max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="px-5 py-4 border-b border-white/10 flex items-center justify-between gap-3 bg-surface/90">
-          <div className="min-w-0">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-emerald block">
+        <div className="px-4 py-3.5 sm:px-5 sm:py-4 border-b border-white/10 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2.5 sm:gap-3 bg-surface/95">
+          <div className="min-w-0 flex-1">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-emerald block">
               {lang === "th" ? "หลักฐานจากแฟ้มสะสมผลงานจริง" : "VERIFIED PORTFOLIO EVIDENCE"}
             </span>
-            <h3 className="font-display font-bold text-base sm:text-lg text-ink truncate">
+            <h3 className="font-display font-bold text-sm sm:text-lg text-ink line-clamp-1">
               {item.title}
             </h3>
           </div>
@@ -56,7 +56,7 @@ export function LightboxModal({
               <button
                 type="button"
                 onClick={() => setShowAct((v) => !v)}
-                className="px-3 py-1.5 rounded-xl bg-purple/20 border border-purple/40 text-purple text-xs font-semibold hover:bg-purple/30 transition-colors"
+                className="px-3 py-2 sm:py-1.5 rounded-xl bg-purple/20 border border-purple/40 text-purple text-xs font-semibold hover:bg-purple/30 transition-colors"
               >
                 {showAct
                   ? lang === "th"
@@ -78,15 +78,15 @@ export function LightboxModal({
           </div>
         </div>
 
-        <div className="p-4 sm:p-6 overflow-y-auto flex-1 flex flex-col items-center justify-center bg-void/70">
+        <div className="p-3 sm:p-6 overflow-y-auto flex-1 flex flex-col items-center justify-center bg-void/70">
           <img
             src={activeSrc}
             alt={item.title}
-            className="max-h-[58vh] w-auto max-w-full object-contain rounded-xl border border-white/10"
+            className="max-h-[52dvh] sm:max-h-[58vh] w-auto max-w-full object-contain rounded-xl border border-white/10"
           />
         </div>
 
-        <div className="px-5 py-4 border-t border-white/10 bg-surface/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="px-4 py-3.5 sm:px-5 sm:py-4 border-t border-white/10 bg-surface/95 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
           <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed">{item.desc}</p>
           <span className="text-xs font-mono text-emerald shrink-0">{item.meta}</span>
         </div>

@@ -39,8 +39,13 @@ export function SpatialCard({
   const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 50 });
   const [hovered, setHovered] = useState(false);
 
+  const handlePointerEnter = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse") return;
+    setHovered(true);
+  };
+
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (reducedMotion || !cardRef.current) return;
+    if (reducedMotion || e.pointerType !== "mouse" || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
@@ -64,26 +69,26 @@ export function SpatialCard({
   return (
     <motion.div
       ref={cardRef}
-      initial={reducedMotion ? false : { opacity: 0, y: 24, scale: 0.98 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-40px" }}
+      initial={reducedMotion ? false : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "0px" }}
       transition={{
-        duration: 0.45,
-        delay: Math.min(index * 0.08, 0.32),
+        duration: 0.38,
+        delay: Math.min(index * 0.06, 0.24),
         ease: [0.2, 0, 0, 1],
       }}
-      onPointerEnter={() => setHovered(true)}
+      onPointerEnter={handlePointerEnter}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onClick={onClick}
       style={{
         transformPerspective: 1100,
-        rotateX: reducedMotion ? 0 : tilt.rotateX,
-        rotateY: reducedMotion ? 0 : tilt.rotateY,
+        rotateX: reducedMotion || !hovered ? 0 : tilt.rotateX,
+        rotateY: reducedMotion || !hovered ? 0 : tilt.rotateY,
         borderColor: hovered ? BORDER_MAP[glowColor] : undefined,
       }}
       className={cn(
-        "relative group glass-panel rounded-3xl overflow-hidden transition-[border-color,box-shadow] duration-300 will-change-transform",
+        "relative group glass-panel rounded-2xl sm:rounded-3xl overflow-hidden transition-[border-color,box-shadow] duration-300",
         hovered && "shadow-[0_24px_54px_-12px_rgba(0,0,0,0.78)]",
         onClick && "cursor-pointer",
         className
@@ -104,11 +109,11 @@ export function SpatialCard({
       {/* Subtle Corner Architectural Hairlines */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-0 w-6 h-6 border-t border-l border-white/15 rounded-tl-3xl opacity-50 group-hover:opacity-100 group-hover:border-emerald/50 transition-all duration-300"
+        className="pointer-events-none absolute top-0 left-0 w-5 h-5 sm:w-6 sm:h-6 border-t border-l border-white/15 rounded-tl-2xl sm:rounded-tl-3xl opacity-50 group-hover:opacity-100 group-hover:border-emerald/50 transition-all duration-300"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 right-0 w-6 h-6 border-b border-r border-white/15 rounded-br-3xl opacity-50 group-hover:opacity-100 group-hover:border-emerald/50 transition-all duration-300"
+        className="pointer-events-none absolute bottom-0 right-0 w-5 h-5 sm:w-6 sm:h-6 border-b border-r border-white/15 rounded-br-2xl sm:rounded-br-3xl opacity-50 group-hover:opacity-100 group-hover:border-emerald/50 transition-all duration-300"
       />
 
       <div className="relative z-10 h-full">{children}</div>

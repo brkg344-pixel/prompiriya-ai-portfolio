@@ -122,12 +122,12 @@ export function DcaInteractiveSandbox() {
   }, [metrics, dSim]);
 
   return (
-    <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-emerald/25 space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+    <div className="glass-panel rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-emerald/25 space-y-5 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-white/10 pb-4">
         <div>
           <span className="text-xs font-mono text-emerald uppercase tracking-wider">{dSim.badge}</span>
-          <h3 className="font-display font-bold text-2xl text-ink mt-1">{dSim.heading}</h3>
-          <p className="text-xs sm:text-sm text-ink-secondary mt-1">{dSim.subheading}</p>
+          <h3 className="font-display font-bold text-xl sm:text-2xl text-ink mt-1 leading-snug">{dSim.heading}</h3>
+          <p className="text-xs sm:text-sm text-ink-secondary mt-1 leading-relaxed">{dSim.subheading}</p>
         </div>
         <button
           type="button"
@@ -145,10 +145,10 @@ export function DcaInteractiveSandbox() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-4 space-y-4 bg-void/70 p-5 rounded-2xl border border-white/10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+        <div className="lg:col-span-4 space-y-4 bg-void/70 p-4 sm:p-5 rounded-2xl border border-white/10">
           <div>
-            <div className="flex justify-between text-xs mb-1">
+            <div className="flex justify-between text-xs mb-1.5">
               <span className="text-ink-secondary">{dSim.lblMonthly}</span>
               <span className="font-mono font-bold text-emerald">฿{monthly.toLocaleString()}</span>
             </div>
@@ -159,12 +159,12 @@ export function DcaInteractiveSandbox() {
               step={500}
               value={monthly}
               onChange={(e) => setMonthly(Number(e.target.value))}
-              className="w-full accent-emerald"
+              className="w-full h-2 cursor-pointer accent-emerald"
             />
           </div>
 
           <div>
-            <div className="flex justify-between text-xs mb-1">
+            <div className="flex justify-between text-xs mb-1.5">
               <span className="text-ink-secondary">{dSim.lblRate}</span>
               <span className="font-mono font-bold text-purple">{annualRate.toFixed(1)}%</span>
             </div>
@@ -175,12 +175,12 @@ export function DcaInteractiveSandbox() {
               step={0.5}
               value={annualRate}
               onChange={(e) => setAnnualRate(Number(e.target.value))}
-              className="w-full accent-purple"
+              className="w-full h-2 cursor-pointer accent-purple"
             />
           </div>
 
           <div>
-            <div className="flex justify-between text-xs mb-1">
+            <div className="flex justify-between text-xs mb-1.5">
               <span className="text-ink-secondary">{dSim.lblYears}</span>
               <span className="font-mono font-bold text-techblue">
                 {years} {isTh ? "ปี" : "Yrs"} ({metrics.months} mo)
@@ -193,12 +193,12 @@ export function DcaInteractiveSandbox() {
               step={1}
               value={years}
               onChange={(e) => setYears(Number(e.target.value))}
-              className="w-full accent-techblue"
+              className="w-full h-2 cursor-pointer accent-techblue"
             />
           </div>
 
           <div>
-            <div className="flex justify-between text-xs mb-1">
+            <div className="flex justify-between text-xs mb-1.5">
               <span className="text-ink-secondary">{dSim.lblStep}</span>
               <span className="font-mono font-bold text-ink">{stepUpPct.toFixed(1)}%</span>
             </div>
@@ -209,7 +209,7 @@ export function DcaInteractiveSandbox() {
               step={1}
               value={stepUpPct}
               onChange={(e) => setStepUpPct(Number(e.target.value))}
-              className="w-full accent-emerald"
+              className="w-full h-2 cursor-pointer accent-emerald"
             />
           </div>
 
@@ -221,7 +221,7 @@ export function DcaInteractiveSandbox() {
                   key={s}
                   type="button"
                   onClick={() => setShockPct(s)}
-                  className={`px-2 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors ${
+                  className={`px-2 py-2 rounded-lg text-xs font-mono font-semibold transition-colors ${
                     shockPct === s
                       ? "bg-emerald text-void"
                       : "bg-surface-elevated text-ink-secondary hover:text-ink"
@@ -234,7 +234,7 @@ export function DcaInteractiveSandbox() {
           </div>
 
           <div className="pt-2 border-t border-white/10">
-            <div className="flex justify-between text-xs mb-1">
+            <div className="flex justify-between text-xs mb-1.5">
               <span className="text-purple font-semibold">{dSim.lblGoal}</span>
               <span className="font-mono font-bold text-purple">
                 ฿{goalTarget.toLocaleString()}
@@ -247,9 +247,9 @@ export function DcaInteractiveSandbox() {
               step={100000}
               value={goalTarget}
               onChange={(e) => setGoalTarget(Number(e.target.value))}
-              className="w-full accent-purple"
+              className="w-full h-2 cursor-pointer accent-purple"
             />
-            <div className="mt-2 p-2.5 rounded-xl bg-purple/10 border border-purple/25 text-xs flex justify-between">
+            <div className="mt-2.5 p-2.5 rounded-xl bg-purple/10 border border-purple/25 text-xs flex justify-between items-center">
               <span className="text-ink-secondary">{dSim.reqPmtLbl}</span>
               <span className="font-mono font-bold text-emerald">
                 ฿{metrics.reqPmt.toLocaleString()} / mo
@@ -259,24 +259,24 @@ export function DcaInteractiveSandbox() {
         </div>
 
         <div className="lg:col-span-8 flex flex-col justify-between gap-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-4 rounded-2xl bg-void/80 border border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-void/80 border border-white/10">
               <div className="text-xs text-ink-muted">{dSim.curve1}</div>
-              <div className="font-display font-bold text-xl text-ink mt-1">
+              <div className="font-display font-bold text-lg sm:text-xl text-ink mt-1">
                 ฿{metrics.plainTotal.toLocaleString()}
               </div>
               <div className="text-[11px] font-mono text-ink-muted mt-0.5">{dSim.curve1Sub}</div>
             </div>
-            <div className="p-4 rounded-2xl bg-void/80 border border-techblue/25">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-void/80 border border-techblue/25">
               <div className="text-xs text-techblue">{dSim.curve2}</div>
-              <div className="font-display font-bold text-xl text-techblue mt-1">
+              <div className="font-display font-bold text-lg sm:text-xl text-techblue mt-1">
                 ฿{metrics.geoSaveTotal.toLocaleString()}
               </div>
               <div className="text-[11px] font-mono text-ink-muted mt-0.5">{dSim.curve2Sub}</div>
             </div>
-            <div className="p-4 rounded-2xl bg-void/80 border border-emerald/35">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-void/80 border border-emerald/35">
               <div className="text-xs text-emerald">{dSim.curve3}</div>
-              <div className="font-display font-bold text-xl text-emerald mt-1">
+              <div className="font-display font-bold text-lg sm:text-xl text-emerald mt-1">
                 ฿{metrics.dcaTotal.toLocaleString()}
               </div>
               <div className="text-[11px] font-mono text-emerald/80 mt-0.5">
@@ -285,13 +285,13 @@ export function DcaInteractiveSandbox() {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-void/90 border border-white/10">
-            <div className="relative h-72 w-full">
+          <div className="p-3 sm:p-4 rounded-2xl bg-void/90 border border-white/10">
+            <div className="relative h-60 sm:h-72 w-full">
               <canvas ref={canvasRef} />
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-ink-muted">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] sm:text-xs font-mono text-ink-muted">
             <span>{dSim.formulaNote}</span>
             <span className="text-emerald">{dSim.verifyNote}</span>
           </div>

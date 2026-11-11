@@ -307,25 +307,25 @@ export function InteractiveHoloCore() {
   const activeInfo = modes.find((m) => m.id === mode) || modes[0];
 
   return (
-    <div className="relative rounded-2xl bg-void/85 border border-white/10 p-3.5 overflow-hidden">
-      <div className="flex items-center justify-between gap-2 mb-2">
+    <div className="relative rounded-2xl bg-void/85 border border-white/10 p-3.5 sm:p-4 overflow-hidden">
+      <div className="flex items-center justify-between gap-2 mb-2.5">
         <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>{isTh ? "3D INTERACTIVE CORE" : "3D INTERACTIVE CORE"}</span>
+          <Sparkles className="w-3.5 h-3.5 shrink-0" />
+          <span>3D INTERACTIVE CORE</span>
         </div>
         <span className="text-[10px] font-mono text-ink-muted">
-          {isTh ? "เลื่อนเมาส์เพื่อหมุนแกน 3D" : "Hover to rotate 3D axis"}
+          {isTh ? "แตะหรือเลื่อนเพื่อหมุน 3D" : "Touch or hover to rotate 3D"}
         </span>
       </div>
 
       {/* Three.js Canvas Viewport */}
       <div
         ref={mountRef}
-        className="w-full h-40 sm:h-44 rounded-xl bg-gradient-to-b from-surface/70 to-void/90 border border-white/5 cursor-grab active:cursor-grabbing relative"
+        className="w-full h-36 sm:h-44 rounded-xl bg-gradient-to-b from-surface/70 to-void/90 border border-white/5 cursor-grab active:cursor-grabbing relative touch-pan-y"
       />
 
-      {/* Mode Selector Pills */}
-      <div className="mt-2.5 grid grid-cols-3 gap-1.5">
+      {/* Mode Selector Pills — Responsive 1-col on narrow phones, 3-col on sm+ */}
+      <div className="mt-2.5 grid grid-cols-1 sm:grid-cols-3 gap-1.5">
         {modes.map((m) => {
           const Icon = m.icon;
           const isActive = mode === m.id;
@@ -334,17 +334,17 @@ export function InteractiveHoloCore() {
               key={m.id}
               type="button"
               onClick={() => setMode(m.id)}
-              className={`px-2 py-1.5 rounded-xl border text-left transition-all duration-200 ${
+              className={`px-3 py-2 sm:px-2.5 sm:py-1.5 rounded-xl border text-left transition-all duration-200 flex sm:block items-center justify-between gap-2 ${
                 isActive
                   ? m.accent
                   : "border-white/10 bg-surface/60 text-ink-secondary hover:text-ink hover:border-white/20"
               }`}
             >
-              <div className="flex items-center gap-1 text-[11px] font-bold truncate">
-                <Icon className="w-3 h-3 shrink-0" />
+              <div className="flex items-center gap-1.5 text-xs sm:text-[11px] font-bold min-w-0">
+                <Icon className="w-3.5 h-3.5 sm:w-3 sm:h-3 shrink-0" />
                 <span className="truncate">{isTh ? m.labelTh : m.labelEn}</span>
               </div>
-              <div className="text-[9px] font-mono opacity-80 truncate mt-0.5">
+              <div className="text-[10px] sm:text-[9px] font-mono opacity-85 truncate sm:mt-0.5 shrink-0 sm:shrink">
                 {isTh ? m.subTh : m.subEn}
               </div>
             </button>
@@ -352,7 +352,7 @@ export function InteractiveHoloCore() {
         })}
       </div>
 
-      <div className="mt-2 flex items-center justify-between text-[10px] font-mono text-ink-secondary px-1">
+      <div className="mt-2.5 flex items-center justify-between text-[10px] font-mono text-ink-secondary px-1">
         <span>MODE: {activeInfo.id.toUpperCase()}</span>
         <span className="text-emerald">WEBGL 2.0 • 60FPS</span>
       </div>

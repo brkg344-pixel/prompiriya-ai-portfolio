@@ -34,13 +34,14 @@ export function SyntropicBackground() {
       return;
     }
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const isMobile = window.innerWidth < 768;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
     // 1. Neural Constellation Particle Field (BufferGeometry)
-    const particleCount = 240;
+    const particleCount = isMobile ? 110 : 240;
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
@@ -68,10 +69,10 @@ export function SyntropicBackground() {
     particlesGeo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
     const particlesMat = new THREE.PointsMaterial({
-      size: 0.09,
+      size: isMobile ? 0.08 : 0.09,
       vertexColors: true,
       transparent: true,
-      opacity: 0.65,
+      opacity: isMobile ? 0.45 : 0.65,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });

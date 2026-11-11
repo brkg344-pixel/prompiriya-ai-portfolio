@@ -39,25 +39,25 @@ export default function ProjectDetailPage() {
       <SyntropicBackground />
       <Navbar activeSection="projects" onOpenAudit={() => setAuditOpen(true)} />
 
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-28 space-y-10">
+      <main className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-28 space-y-8 sm:space-y-10">
         {/* Top Case Study Switcher Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-white/15 text-xs sm:text-sm font-semibold text-ink transition-colors"
+            className="self-start inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-white/15 text-xs sm:text-sm font-semibold text-ink transition-colors"
           >
-            <ArrowLeft className="w-4 h-4 text-emerald" />
+            <ArrowLeft className="w-4 h-4 text-emerald shrink-0" />
             <span>{dict.nav.backHome}</span>
           </Link>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex overflow-x-auto no-scrollbar max-w-full items-center gap-2 pb-1 sm:pb-0">
             {PROJECTS_CASE_STUDIES.map((p, idx) => {
               const active = p.slug === project.slug;
               return (
                 <Link
                   key={p.slug}
                   href={`/projects/${p.slug}`}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-colors ${
+                  className={`px-3 py-2 sm:py-1.5 rounded-xl text-xs font-mono whitespace-nowrap shrink-0 transition-colors ${
                     active
                       ? "bg-emerald text-void font-bold"
                       : "bg-surface-elevated hover:bg-surface-hover border border-white/10 text-ink-secondary hover:text-ink"
@@ -71,9 +71,9 @@ export default function ProjectDetailPage() {
         </div>
 
         {/* 1. Overview Hero Banner */}
-        <SpatialCard glowColor="emerald" tiltIntensity={2.5} className="p-6 sm:p-10 space-y-5">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <span className="px-3 py-1 rounded-full bg-emerald/15 border border-emerald/35 text-emerald font-mono text-xs font-semibold">
+        <SpatialCard glowColor="emerald" tiltIntensity={2.5} className="p-5 sm:p-10 space-y-4 sm:space-y-5">
+          <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+            <span className="px-3 py-1 rounded-full bg-emerald/15 border border-emerald/35 text-emerald font-mono text-[11px] sm:text-xs font-semibold">
               {pd.badge}
             </span>
             <span className="text-xs font-mono text-ink-muted">{pd.date}</span>
@@ -83,7 +83,7 @@ export default function ProjectDetailPage() {
             {pd.title}
           </h1>
 
-          <p className="text-sm sm:text-base text-ink-secondary leading-relaxed max-w-4xl">
+          <p className="text-[13.5px] sm:text-base text-ink-secondary leading-[1.8] sm:leading-relaxed max-w-4xl">
             {pd.overview}
           </p>
 

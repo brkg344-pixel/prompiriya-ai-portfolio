@@ -137,26 +137,26 @@ export default function HomePage() {
         onOpenAudit={() => setAuditOpen(true)}
       />
 
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-28 space-y-20">
+      <main className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-28 space-y-14 sm:space-y-20">
         {/* ================================================================= */}
         {/* 1. HERO SECTION — SPATIAL AI LABORATORY                           */}
         {/* ================================================================= */}
-        <section id="hero" className="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <section id="hero" className="scroll-mt-20 sm:scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
           {/* Left 7 Cols: Identity, Value Proposition & Primary Actions */}
           <SpatialCard
             glowColor="emerald"
             tiltIntensity={3.5}
-            className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between gap-6"
+            className="lg:col-span-7 p-5 sm:p-8 flex flex-col justify-between gap-5 sm:gap-6"
           >
             <div className="space-y-4">
               {/* Top Telemetry Status Strip */}
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald/15 border border-emerald/35 text-emerald text-xs font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-emerald animate-ping" />
-                    {dict.hero.badgeTarget}
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-emerald/15 border border-emerald/35 text-emerald text-[11px] sm:text-xs font-semibold">
+                    <span className="w-2 h-2 rounded-full bg-emerald animate-ping shrink-0" />
+                    <span>{dict.hero.badgeTarget}</span>
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-purple/15 border border-purple/35 text-purple text-xs font-medium">
+                  <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple/15 border border-purple/35 text-purple text-[11px] sm:text-xs font-medium">
                     {dict.hero.badgeMajor}
                   </span>
                 </div>
@@ -166,15 +166,15 @@ export default function HomePage() {
               </div>
 
               <div className="space-y-1.5 pt-1">
-                <p className="text-xs font-mono uppercase tracking-wider text-emerald flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" />
+                <p className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-emerald flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 shrink-0" />
                   <span>{dict.hero.greeting}</span>
                 </p>
-                <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-[3.35rem] leading-[1.08] tracking-tight text-ink">
+                <h1 className="font-display font-extrabold text-[1.85rem] sm:text-5xl lg:text-[3.35rem] leading-[1.15] sm:leading-[1.08] tracking-tight text-ink">
                   {dict.hero.namePrimary}
                   <span className="text-syntropic-gradient">{dict.hero.nameLast}</span>
                 </h1>
-                <p className="text-xs sm:text-sm font-mono text-ink-secondary">
+                <p className="text-xs sm:text-sm font-mono text-ink-secondary leading-relaxed">
                   {dict.hero.nameSub} •{" "}
                   <span className="text-emerald font-semibold">{dict.hero.schoolTag}</span>
                 </p>
@@ -185,7 +185,7 @@ export default function HomePage() {
                 {dict.hero.roles.map((r: string, idx: number) => (
                   <span
                     key={r}
-                    className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-colors ${
+                    className={`px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-medium border transition-colors ${
                       idx < 3
                         ? "bg-emerald/10 border-emerald/30 text-emerald"
                         : "bg-surface-elevated border-white/10 text-ink-secondary hover:text-ink"
@@ -196,17 +196,17 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <p className="text-sm sm:text-base text-ink-secondary leading-relaxed">
+              <p className="text-[13.5px] sm:text-base text-ink-secondary leading-[1.75] sm:leading-relaxed">
                 {dict.hero.intro}
               </p>
 
               {/* Academic Highlight Callout Box */}
-              <div className="p-4 rounded-2xl bg-void/80 border border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-void/80 border border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div>
                   <span className="font-mono text-[10px] uppercase tracking-wider text-emerald block">
                     {dict.hero.interestsLabel}
                   </span>
-                  <span className="font-semibold text-ink mt-0.5 block">
+                  <span className="font-semibold text-ink mt-0.5 block leading-snug">
                     {dict.hero.badgeMajor}
                   </span>
                 </div>
@@ -214,7 +214,7 @@ export default function HomePage() {
                   <span className="font-mono text-[10px] uppercase tracking-wider text-purple block">
                     {dict.hero.portraitTop}
                   </span>
-                  <span className="font-semibold text-ink mt-0.5 block">
+                  <span className="font-semibold text-ink mt-0.5 block leading-snug">
                     {dict.hero.authenticBadge}
                   </span>
                 </div>
@@ -222,17 +222,17 @@ export default function HomePage() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a href="#projects">
-                <LiquidButton>{dict.hero.ctaPrimary}</LiquidButton>
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2">
+              <a href="#projects" className="w-full sm:w-auto">
+                <LiquidButton className="w-full sm:w-auto justify-center">{dict.hero.ctaPrimary}</LiquidButton>
               </a>
-              <Link href="/projects/dca-simulator">
-                <MetalButton variant="success">{dict.hero.ctaSecondary}</MetalButton>
+              <Link href="/projects/dca-simulator" className="w-full sm:w-auto">
+                <MetalButton variant="success" className="w-full sm:w-auto">{dict.hero.ctaSecondary}</MetalButton>
               </Link>
               <button
                 type="button"
                 onClick={() => setAuditOpen(true)}
-                className="px-3.5 py-2.5 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-white/10 text-xs font-mono text-ink-secondary hover:text-emerald flex items-center gap-1.5 transition-colors"
+                className="w-full sm:w-auto justify-center px-3.5 py-2.5 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-white/10 text-xs font-mono text-ink-secondary hover:text-emerald flex items-center gap-1.5 transition-colors"
               >
                 <ShieldCheck className="w-4 h-4 text-emerald" />
                 <span>{dict.nav.auditBtn}</span>
@@ -242,9 +242,9 @@ export default function HomePage() {
 
           {/* Right 5 Cols: Authentic Candidate Portrait + 3D Interactive Holo Core */}
           <div className="lg:col-span-5 flex flex-col gap-5 justify-between">
-            <SpatialCard glowColor="purple" tiltIntensity={4} className="p-5 space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                {/* Portrait with Lightbox Trigger */}
+            <SpatialCard glowColor="purple" tiltIntensity={4} className="p-4 sm:p-5 space-y-4">
+              <div className="grid grid-cols-12 gap-3.5 sm:gap-4 items-center">
+                {/* Portrait with Lightbox Trigger — Compact 5-col on mobile & desktop for eye comfort */}
                 <div
                   onClick={() =>
                     setLightboxItem({
@@ -255,57 +255,57 @@ export default function HomePage() {
                       meta: dict.hero.schoolTag,
                     })
                   }
-                  className="sm:col-span-5 relative rounded-2xl overflow-hidden bg-void aspect-[4/5] border border-white/15 group/img cursor-pointer"
+                  className="col-span-5 relative rounded-2xl overflow-hidden bg-void aspect-[4/5] border border-white/15 group/img cursor-pointer"
                 >
                   <img
                     src="/images/profile-boom.jpg"
                     alt="Prompiriya Phetyangphul"
                     className="w-full h-full object-cover object-top group-hover/img:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-void/90 via-transparent to-transparent flex items-end p-2.5">
-                    <span className="text-[10px] font-mono text-emerald flex items-center gap-1">
-                      <Eye className="w-3 h-3" />
-                      {dict.hero.portraitRole}
+                  <div className="absolute inset-0 bg-gradient-to-t from-void/90 via-transparent to-transparent flex items-end p-2 sm:p-2.5">
+                    <span className="text-[9px] sm:text-[10px] font-mono text-emerald flex items-center gap-1 leading-tight">
+                      <Eye className="w-3 h-3 shrink-0" />
+                      <span className="truncate">{dict.hero.portraitRole}</span>
                     </span>
                   </div>
                 </div>
 
                 {/* Candidate Telemetry & 5-Semester GPA Grid */}
-                <div className="sm:col-span-7 space-y-3">
+                <div className="col-span-7 space-y-2.5 sm:space-y-3">
                   <div>
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-emerald">
+                    <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-emerald">
                       CANDIDATE PROFILE // VERIFIED
                     </div>
-                    <div className="font-display font-bold text-base text-ink mt-0.5">
+                    <div className="font-display font-bold text-sm sm:text-base text-ink mt-0.5 leading-snug">
                       {dict.hero.portraitName}
                     </div>
-                    <div className="text-xs text-ink-secondary">{dict.hero.schoolTag}</div>
+                    <div className="text-[11px] sm:text-xs text-ink-secondary leading-snug">{dict.hero.schoolTag}</div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="p-2.5 rounded-xl bg-void/85 border border-emerald/30">
-                      <div className="text-[10px] font-mono text-ink-muted">
+                  <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-void/85 border border-emerald/30">
+                      <div className="text-[10px] font-mono text-ink-muted truncate">
                         {dict.hero.metricGpax}
                       </div>
-                      <div className="font-display font-extrabold text-xl text-emerald">3.58</div>
+                      <div className="font-display font-extrabold text-lg sm:text-xl text-emerald">3.58</div>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-void/85 border border-white/10">
-                      <div className="text-[10px] font-mono text-ink-muted">
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-void/85 border border-white/10">
+                      <div className="text-[10px] font-mono text-ink-muted truncate">
                         {dict.hero.metricSci}
                       </div>
-                      <div className="font-display font-bold text-lg text-emerald">3.56</div>
+                      <div className="font-display font-bold text-base sm:text-lg text-emerald">3.56</div>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-void/85 border border-white/10">
-                      <div className="text-[10px] font-mono text-ink-muted">
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-void/85 border border-white/10">
+                      <div className="text-[10px] font-mono text-ink-muted truncate">
                         {dict.hero.metricLang}
                       </div>
-                      <div className="font-display font-bold text-lg text-purple">3.50</div>
+                      <div className="font-display font-bold text-base sm:text-lg text-purple">3.50</div>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-void/85 border border-white/10">
-                      <div className="text-[10px] font-mono text-ink-muted">
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-void/85 border border-white/10">
+                      <div className="text-[10px] font-mono text-ink-muted truncate">
                         {dict.hero.metricMath}
                       </div>
-                      <div className="font-display font-bold text-lg text-techblue">3.40</div>
+                      <div className="font-display font-bold text-base sm:text-lg text-techblue">3.40</div>
                     </div>
                   </div>
                 </div>
@@ -320,7 +320,7 @@ export default function HomePage() {
         {/* ================================================================= */}
         {/* 2. ABOUT ME — IDENTITY & PERSONAL STORY                           */}
         {/* ================================================================= */}
-        <section id="about" className="scroll-mt-24 space-y-6">
+        <section id="about" className="scroll-mt-20 sm:scroll-mt-24 space-y-5 sm:space-y-6">
           <div className="space-y-1">
             <span className="text-xs font-mono uppercase tracking-wider text-emerald">
               {dict.about.eyebrow}
@@ -328,21 +328,21 @@ export default function HomePage() {
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink">
               {dict.about.title}
             </h2>
-            <p className="text-sm text-ink-secondary max-w-3xl">{dict.about.subtitle}</p>
+            <p className="text-[13.5px] sm:text-sm text-ink-secondary max-w-3xl leading-relaxed">{dict.about.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <SpatialCard glowColor="emerald" index={0} className="lg:col-span-7 p-6 sm:p-8 space-y-4">
-              <h3 className="font-display font-bold text-xl text-emerald">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+            <SpatialCard glowColor="emerald" index={0} className="lg:col-span-7 p-5 sm:p-8 space-y-4">
+              <h3 className="font-display font-bold text-lg sm:text-xl text-emerald leading-snug">
                 {dict.about.storyHeading}
               </h3>
-              <p className="text-sm sm:text-base text-ink-secondary leading-relaxed">
+              <p className="text-[13.5px] sm:text-base text-ink-secondary leading-[1.8] sm:leading-relaxed">
                 {dict.about.p1}
               </p>
-              <p className="text-sm sm:text-base text-ink-secondary leading-relaxed">
+              <p className="text-[13.5px] sm:text-base text-ink-secondary leading-[1.8] sm:leading-relaxed">
                 {dict.about.p2}
               </p>
-              <blockquote className="p-4 rounded-2xl bg-void/80 border-l-4 border-emerald text-sm text-ink space-y-1.5">
+              <blockquote className="p-4 rounded-2xl bg-void/80 border-l-4 border-emerald text-[13.5px] sm:text-sm text-ink space-y-1.5 leading-relaxed">
                 <p className="font-medium italic">{dict.about.quote}</p>
                 <footer className="text-xs font-mono text-emerald">
                   {dict.about.quoteCaption}
@@ -350,8 +350,8 @@ export default function HomePage() {
               </blockquote>
             </SpatialCard>
 
-            <div className="lg:col-span-5 space-y-6">
-              <SpatialCard glowColor="purple" index={1} className="p-6 space-y-3">
+            <div className="lg:col-span-5 space-y-5 sm:space-y-6">
+              <SpatialCard glowColor="purple" index={1} className="p-5 sm:p-6 space-y-3">
                 <h3 className="font-display font-bold text-base text-ink">
                   {dict.about.factsTitle}
                 </h3>
@@ -362,13 +362,13 @@ export default function HomePage() {
                       className="p-3 rounded-xl bg-void/75 border border-white/10"
                     >
                       <dt className="font-mono text-[11px] text-ink-muted">{f.k}</dt>
-                      <dd className="font-semibold text-ink mt-0.5">{f.v}</dd>
+                      <dd className="font-semibold text-ink mt-0.5 leading-snug">{f.v}</dd>
                     </div>
                   ))}
                 </dl>
               </SpatialCard>
 
-              <SpatialCard glowColor="techblue" index={2} className="p-6 space-y-3">
+              <SpatialCard glowColor="techblue" index={2} className="p-5 sm:p-6 space-y-3">
                 <h3 className="font-display font-bold text-base text-ink">
                   {dict.about.hobbiesTitle}
                 </h3>
@@ -379,7 +379,7 @@ export default function HomePage() {
                       className="p-3 rounded-xl bg-void/75 border border-white/10 hover:border-emerald/30 transition-colors"
                     >
                       <div className="font-semibold text-xs text-emerald">{h.title}</div>
-                      <div className="text-xs text-ink-secondary mt-0.5">{h.desc}</div>
+                      <div className="text-xs text-ink-secondary mt-0.5 leading-relaxed">{h.desc}</div>
                     </div>
                   ))}
                 </div>
@@ -391,7 +391,7 @@ export default function HomePage() {
         {/* ================================================================= */}
         {/* 3. EDUCATION — ACADEMIC RECORD & CORE SUBJECT GPAs                */}
         {/* ================================================================= */}
-        <section id="education" className="scroll-mt-24 space-y-6">
+        <section id="education" className="scroll-mt-20 sm:scroll-mt-24 space-y-5 sm:space-y-6">
           <div className="space-y-1">
             <span className="text-xs font-mono uppercase tracking-wider text-emerald">
               {dict.education.eyebrow}
@@ -399,28 +399,28 @@ export default function HomePage() {
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink">
               {dict.education.title}
             </h2>
-            <p className="text-sm text-ink-secondary max-w-3xl">{dict.education.subtitle}</p>
+            <p className="text-[13.5px] sm:text-sm text-ink-secondary max-w-3xl leading-relaxed">{dict.education.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
             <div className="lg:col-span-7 space-y-4">
               <SpatialCard
                 glowColor="emerald"
                 index={0}
-                className="p-6 sm:p-7 space-y-3 border-l-4 border-l-emerald"
+                className="p-5 sm:p-7 space-y-3 border-l-4 border-l-emerald"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="px-3 py-1 rounded-full bg-emerald/15 border border-emerald/35 text-emerald text-xs font-mono font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-emerald/15 border border-emerald/35 text-emerald text-[11px] sm:text-xs font-mono font-semibold">
                     {dict.education.highBadge}
                   </span>
-                  <span className="font-display font-extrabold text-emerald text-xl">
+                  <span className="font-display font-extrabold text-emerald text-lg sm:text-xl">
                     GPAX 3.58
                   </span>
                 </div>
-                <h3 className="font-display font-bold text-xl text-ink">
+                <h3 className="font-display font-bold text-lg sm:text-xl text-ink leading-snug">
                   {dict.education.highSchool}
                 </h3>
-                <p className="text-sm text-ink-secondary leading-relaxed">
+                <p className="text-[13.5px] sm:text-sm text-ink-secondary leading-[1.75] sm:leading-relaxed">
                   {dict.education.highDesc}
                 </p>
               </SpatialCard>
@@ -428,61 +428,81 @@ export default function HomePage() {
               <SpatialCard
                 glowColor="techblue"
                 index={1}
-                className="p-6 sm:p-7 space-y-3 border-l-4 border-l-techblue"
+                className="p-5 sm:p-7 space-y-3 border-l-4 border-l-techblue"
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="px-3 py-1 rounded-full bg-techblue/15 border border-techblue/35 text-techblue text-xs font-mono font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-techblue/15 border border-techblue/35 text-techblue text-[11px] sm:text-xs font-mono font-semibold">
                     {dict.education.jrBadge}
                   </span>
-                  <span className="font-display font-extrabold text-techblue text-xl">
+                  <span className="font-display font-extrabold text-techblue text-lg sm:text-xl">
                     GPAX 3.45
                   </span>
                 </div>
-                <h3 className="font-display font-bold text-xl text-ink">
+                <h3 className="font-display font-bold text-lg sm:text-xl text-ink leading-snug">
                   {dict.education.jrSchool}
                 </h3>
-                <p className="text-sm text-ink-secondary leading-relaxed">
+                <p className="text-[13.5px] sm:text-sm text-ink-secondary leading-[1.75] sm:leading-relaxed">
                   {dict.education.jrDesc}
                 </p>
               </SpatialCard>
             </div>
 
-            <SpatialCard glowColor="purple" index={2} className="lg:col-span-5 p-6 space-y-4">
+            <SpatialCard glowColor="purple" index={2} className="lg:col-span-5 p-5 sm:p-6 space-y-4">
               <div>
-                <h3 className="font-display font-bold text-base text-ink">
+                <h3 className="font-display font-bold text-base text-ink leading-snug">
                   {dict.education.subjectsTitle}
                 </h3>
-                <p className="text-xs text-ink-secondary mt-0.5">{dict.education.noteText}</p>
+                <p className="text-xs text-ink-secondary mt-1 leading-relaxed">{dict.education.noteText}</p>
               </div>
 
               <div className="space-y-3.5">
-                {dict.education.subjects.map((s: any, idx: number) => (
-                  <div
-                    key={s.name}
-                    className="p-3.5 rounded-2xl bg-void/75 border border-white/10 space-y-2"
-                  >
-                    <div className="flex justify-between items-center text-xs font-semibold">
-                      <span className="text-ink">{s.name}</span>
-                      <span className="font-mono text-sm font-bold text-emerald">
-                        {s.gpa} <span className="text-[10px] text-ink-muted">/ 4.00</span>
-                      </span>
+                {dict.education.subjects.map((s: any, idx: number) => {
+                  const barStyles = [
+                    {
+                      textClass: "text-emerald",
+                      barClass: "bg-emerald",
+                      bgHex: "linear-gradient(90deg, #35E6A1 0%, #6BFFCA 100%)",
+                      glow: "0 0 12px rgba(53, 230, 161, 0.45)",
+                    },
+                    {
+                      textClass: "text-purple",
+                      barClass: "bg-purple",
+                      bgHex: "linear-gradient(90deg, #9B7BFF 0%, #BBA4FF 100%)",
+                      glow: "0 0 12px rgba(155, 123, 255, 0.45)",
+                    },
+                    {
+                      textClass: "text-techblue",
+                      barClass: "bg-techblue",
+                      bgHex: "linear-gradient(90deg, #4D8DFF 0%, #7FB0FF 100%)",
+                      glow: "0 0 12px rgba(77, 141, 255, 0.45)",
+                    },
+                  ][idx % 3];
+
+                  return (
+                    <div
+                      key={s.name}
+                      className="p-3.5 rounded-2xl bg-void/80 border border-white/10 space-y-2.5"
+                    >
+                      <div className="flex justify-between items-center gap-2 text-xs font-semibold">
+                        <span className="text-ink leading-snug">{s.name}</span>
+                        <span className={`font-mono text-sm font-bold shrink-0 ${barStyles.textClass}`}>
+                          {s.gpa} <span className="text-[10px] text-ink-muted">/ 4.00</span>
+                        </span>
+                      </div>
+                      <div className="w-full h-2.5 rounded-full bg-surface-elevated p-0.5 overflow-hidden border border-white/5">
+                        <div
+                          style={{
+                            width: `${s.pct}%`,
+                            background: barStyles.bgHex,
+                            boxShadow: barStyles.glow,
+                          }}
+                          className={`${barStyles.barClass} h-full rounded-full transition-all duration-700`}
+                        />
+                      </div>
+                      <p className="text-[11px] sm:text-xs text-ink-secondary leading-snug">{s.sub}</p>
                     </div>
-                    <div className="w-full h-2 rounded-full bg-surface-elevated overflow-hidden">
-                      <motion.div
-                        initial={reducedMotion ? { width: `${s.pct}%` } : { width: 0 }}
-                        whileInView={{ width: `${s.pct}%` }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.65,
-                          delay: idx * 0.08,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
-                        className={`${s.color} h-full rounded-full`}
-                      />
-                    </div>
-                    <p className="text-[11px] text-ink-muted">{s.sub}</p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </SpatialCard>
           </div>
@@ -491,7 +511,7 @@ export default function HomePage() {
         {/* ================================================================= */}
         {/* 4. FEATURED PROJECTS — 4 DEEP CASE STUDIES                        */}
         {/* ================================================================= */}
-        <section id="projects" className="scroll-mt-24 space-y-6">
+        <section id="projects" className="scroll-mt-20 sm:scroll-mt-24 space-y-5 sm:space-y-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-1">
               <span className="text-xs font-mono uppercase tracking-wider text-emerald">
@@ -500,20 +520,20 @@ export default function HomePage() {
               <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink">
                 {dict.projectsSection.title}
               </h2>
-              <p className="text-sm text-ink-secondary max-w-3xl">
+              <p className="text-[13.5px] sm:text-sm text-ink-secondary max-w-3xl leading-relaxed">
                 {dict.projectsSection.subtitle}
               </p>
             </div>
             <Link
               href="/projects/dca-simulator"
-              className="px-4 py-2 rounded-xl bg-emerald/15 border border-emerald/40 text-emerald text-xs font-mono font-bold hover:bg-emerald/25 transition-colors inline-flex items-center gap-1.5"
+              className="w-full sm:w-auto justify-center px-4 py-2.5 rounded-xl bg-emerald/15 border border-emerald/40 text-emerald text-xs font-mono font-bold hover:bg-emerald/25 transition-colors inline-flex items-center gap-1.5"
             >
               <span>{dict.projectsSection.trySimBtn}</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {PROJECTS_CASE_STUDIES.map((proj, idx) => {
               const pd = proj[lang];
               return (
@@ -522,7 +542,7 @@ export default function HomePage() {
                   index={idx}
                   glowColor={idx % 2 === 0 ? "emerald" : "purple"}
                   tiltIntensity={4}
-                  className="p-6 flex flex-col justify-between gap-5"
+                  className="p-5 sm:p-6 flex flex-col justify-between gap-5"
                 >
                   <div className="space-y-4">
                     <div className="relative rounded-2xl overflow-hidden aspect-video bg-void border border-white/10 group/proj">
@@ -531,12 +551,12 @@ export default function HomePage() {
                         alt={pd.title}
                         className="w-full h-full object-cover group-hover/proj:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-                        <span className="px-2.5 py-1 rounded-full bg-void/85 backdrop-blur-md border border-emerald/40 text-emerald font-mono text-[11px] font-semibold">
+                      <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 flex flex-wrap gap-1.5">
+                        <span className="px-2.5 py-1 rounded-full bg-void/90 backdrop-blur-md border border-emerald/40 text-emerald font-mono text-[10px] sm:text-[11px] font-semibold">
                           #0{idx + 1} • {pd.category}
                         </span>
                         {proj.hasLiveSimulator && (
-                          <span className="px-2.5 py-1 rounded-full bg-emerald text-void font-mono text-[11px] font-bold">
+                          <span className="px-2.5 py-1 rounded-full bg-emerald text-void font-mono text-[10px] sm:text-[11px] font-bold">
                             LIVE SIMULATOR
                           </span>
                         )}
@@ -545,10 +565,10 @@ export default function HomePage() {
 
                     <div className="space-y-1.5">
                       <div className="text-xs font-mono text-purple">{pd.badge}</div>
-                      <h3 className="font-display font-bold text-xl text-ink">
+                      <h3 className="font-display font-bold text-lg sm:text-xl text-ink leading-snug">
                         {pd.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed">
+                      <p className="text-[13.5px] sm:text-sm text-ink-secondary leading-[1.75] sm:leading-relaxed">
                         {pd.shortDesc}
                       </p>
                     </div>
@@ -557,15 +577,15 @@ export default function HomePage() {
                       <span className="text-emerald font-mono text-[10px] uppercase block">
                         {dict.projectsSection.roleLabel}
                       </span>
-                      <span className="text-ink font-medium block">{pd.roleBadge}</span>
+                      <span className="text-ink font-medium block leading-snug">{pd.roleBadge}</span>
                     </div>
                   </div>
 
-                  <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-3">
+                  <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <span className="text-xs font-mono text-ink-muted">{pd.date}</span>
                     <Link
                       href={`/projects/${proj.slug}`}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald text-void font-bold text-xs sm:text-sm hover:bg-emerald-soft transition-colors"
+                      className="w-full sm:w-auto justify-center inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald text-void font-bold text-xs sm:text-sm hover:bg-emerald-soft transition-colors"
                     >
                       <span>{dict.projectsSection.readMoreBtn}</span>
                       <ArrowUpRight className="w-4 h-4" />
@@ -580,7 +600,7 @@ export default function HomePage() {
         {/* ================================================================= */}
         {/* 5. SKILLS & CAPABILITIES — WITH SHARED LAYOUT FILTER PILLS        */}
         {/* ================================================================= */}
-        <section id="skills" className="scroll-mt-24 space-y-6">
+        <section id="skills" className="scroll-mt-20 sm:scroll-mt-24 space-y-5 sm:space-y-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-1">
               <span className="text-xs font-mono uppercase tracking-wider text-emerald">
@@ -589,12 +609,12 @@ export default function HomePage() {
               <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink">
                 {dict.skillsSection.title}
               </h2>
-              <p className="text-xs sm:text-sm text-ink-secondary max-w-2xl">
+              <p className="text-[13px] sm:text-sm text-ink-secondary max-w-2xl leading-relaxed">
                 {dict.skillsSection.honestyNote}
               </p>
             </div>
 
-            <div className="flex p-1 rounded-xl bg-surface-elevated border border-white/10">
+            <div className="flex overflow-x-auto no-scrollbar max-w-full p-1 rounded-xl bg-surface-elevated border border-white/10">
               {(
                 [
                   { id: "all", label: dict.skillsSection.filterAll },
@@ -608,7 +628,7 @@ export default function HomePage() {
                     key={tab.id}
                     type="button"
                     onClick={() => setSkillFilter(tab.id)}
-                    className={`relative px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                    className={`relative px-3.5 py-2 sm:py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
                       active ? "text-void" : "text-ink-secondary hover:text-ink"
                     }`}
                   >
@@ -626,7 +646,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {dict.skillsSection.categories.map((cat: any, idx: number) => (
               <SpatialCard
                 key={cat.title}
@@ -635,8 +655,8 @@ export default function HomePage() {
                 className="p-5 space-y-3"
               >
                 <div>
-                  <h3 className="font-display font-bold text-base text-ink">{cat.title}</h3>
-                  <p className="text-xs text-ink-secondary mt-0.5">{cat.desc}</p>
+                  <h3 className="font-display font-bold text-base text-ink leading-snug">{cat.title}</h3>
+                  <p className="text-xs text-ink-secondary mt-1 leading-relaxed">{cat.desc}</p>
                 </div>
                 <div className="space-y-2">
                   <AnimatePresence mode="popLayout">
@@ -679,7 +699,7 @@ export default function HomePage() {
         {/* ================================================================= */}
         {/* 6. ACTIVITIES & EXPERIENCE TIMELINE                               */}
         {/* ================================================================= */}
-        <section id="activities" className="scroll-mt-24 space-y-6">
+        <section id="activities" className="scroll-mt-20 sm:scroll-mt-24 space-y-5 sm:space-y-6">
           <div className="space-y-1">
             <span className="text-xs font-mono uppercase tracking-wider text-emerald">
               {dict.activitiesSection.eyebrow}
@@ -687,35 +707,35 @@ export default function HomePage() {
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink">
               {dict.activitiesSection.title}
             </h2>
-            <p className="text-sm text-ink-secondary max-w-3xl">
+            <p className="text-[13.5px] sm:text-sm text-ink-secondary max-w-3xl leading-relaxed">
               {dict.activitiesSection.subtitle}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {dict.activitiesSection.items.map((act: any, idx: number) => (
               <SpatialCard
                 key={act.title}
                 index={idx}
                 glowColor={idx % 2 === 0 ? "emerald" : "purple"}
-                className="p-6 flex flex-col justify-between gap-4"
+                className="p-5 sm:p-6 flex flex-col justify-between gap-4"
               >
                 <div className="space-y-2.5">
                   <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
                     <span className="px-2.5 py-0.5 rounded-full bg-emerald/15 border border-emerald/35 text-emerald">
                       {act.date}
                     </span>
-                    <span className="text-purple">{act.role}</span>
+                    <span className="text-purple text-[11px] sm:text-xs">{act.role}</span>
                   </div>
-                  <h3 className="font-display font-bold text-lg text-ink">{act.title}</h3>
-                  <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed">
+                  <h3 className="font-display font-bold text-base sm:text-lg text-ink leading-snug">{act.title}</h3>
+                  <p className="text-[13.5px] sm:text-sm text-ink-secondary leading-[1.75] sm:leading-relaxed">
                     {act.desc}
                   </p>
                 </div>
                 <div className="pt-3 border-t border-white/10 flex justify-end">
                   <Link
                     href={`/projects/${act.projectSlug}`}
-                    className="text-xs font-mono font-bold text-emerald hover:underline inline-flex items-center gap-1"
+                    className="text-xs font-mono font-bold text-emerald hover:underline inline-flex items-center gap-1 py-1"
                   >
                     <span>{dict.projectsSection.readMoreBtn}</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -729,7 +749,7 @@ export default function HomePage() {
         {/* ================================================================= */}
         {/* 7. CERTIFICATES & AWARDS GALLERY                                  */}
         {/* ================================================================= */}
-        <section id="certificates" className="scroll-mt-24 space-y-6">
+        <section id="certificates" className="scroll-mt-20 sm:scroll-mt-24 space-y-5 sm:space-y-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-1">
               <span className="text-xs font-mono uppercase tracking-wider text-emerald">
@@ -738,12 +758,12 @@ export default function HomePage() {
               <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink">
                 {dict.certificatesSection.title}
               </h2>
-              <p className="text-sm text-ink-secondary max-w-2xl">
+              <p className="text-[13.5px] sm:text-sm text-ink-secondary max-w-2xl leading-relaxed">
                 {dict.certificatesSection.subtitle}
               </p>
             </div>
 
-            <div className="flex flex-wrap p-1 rounded-xl bg-surface-elevated border border-white/10 gap-1">
+            <div className="flex overflow-x-auto no-scrollbar max-w-full p-1 rounded-xl bg-surface-elevated border border-white/10 gap-1">
               {dict.certificatesSection.filters.map((f: any) => {
                 const active = certFilter === f.id;
                 return (
@@ -751,7 +771,7 @@ export default function HomePage() {
                     key={f.id}
                     type="button"
                     onClick={() => setCertFilter(f.id)}
-                    className={`relative px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                    className={`relative px-3.5 py-2 sm:py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
                       active ? "text-void" : "text-ink-secondary hover:text-ink"
                     }`}
                   >
@@ -769,7 +789,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             <AnimatePresence mode="popLayout">
               {dict.certificatesSection.items
                 .filter((c: any) => certFilter === "all" || c.category === certFilter)
@@ -799,17 +819,17 @@ export default function HomePage() {
                           alt={c.title}
                           className="w-full h-full object-cover group-hover/cert:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-void/85 backdrop-blur-md border border-emerald/40 text-[10px] font-mono text-emerald">
+                        <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-void/90 backdrop-blur-md border border-emerald/40 text-[10px] font-mono text-emerald">
                           {dict.certificatesSection.certBadge}
                         </div>
                       </div>
 
-                      <div className="space-y-1">
-                        <div className="text-[11px] font-mono text-emerald">
+                      <div className="space-y-1.5">
+                        <div className="text-[11px] font-mono text-emerald leading-snug">
                           {c.issuer} • <span className="text-purple">{c.date}</span>
                         </div>
-                        <h3 className="font-display font-bold text-base text-ink">{c.title}</h3>
-                        <p className="text-xs text-ink-secondary leading-relaxed">{c.desc}</p>
+                        <h3 className="font-display font-bold text-base text-ink leading-snug">{c.title}</h3>
+                        <p className="text-[13px] sm:text-xs text-ink-secondary leading-[1.7] sm:leading-relaxed">{c.desc}</p>
                       </div>
 
                       {c.skills && (
@@ -839,7 +859,7 @@ export default function HomePage() {
                             meta: `${c.issuer} • ${c.date}`,
                           })
                         }
-                        className="py-2 px-3 rounded-xl bg-emerald/15 hover:bg-emerald/25 border border-emerald/35 text-emerald text-xs font-semibold transition-colors"
+                        className="py-2.5 px-3 rounded-xl bg-emerald/15 hover:bg-emerald/25 border border-emerald/35 text-emerald text-xs font-semibold transition-colors"
                       >
                         {dict.certificatesSection.viewCertBtn}
                       </button>
@@ -855,7 +875,7 @@ export default function HomePage() {
                             meta: `${c.issuer} • ${c.date}`,
                           })
                         }
-                        className="py-2 px-3 rounded-xl bg-purple/15 hover:bg-purple/25 border border-purple/35 text-purple text-xs font-semibold transition-colors"
+                        className="py-2.5 px-3 rounded-xl bg-purple/15 hover:bg-purple/25 border border-purple/35 text-purple text-xs font-semibold transition-colors"
                       >
                         {dict.certificatesSection.viewPhotoBtn}
                       </button>
@@ -869,43 +889,43 @@ export default function HomePage() {
         {/* ================================================================= */}
         {/* 8. PERSONAL STATEMENT & PREFACE (SILPAKORN ICT)                   */}
         {/* ================================================================= */}
-        <section id="statement" className="scroll-mt-24">
-          <SpatialCard glowColor="purple" tiltIntensity={2.5} className="p-6 sm:p-10 space-y-6">
+        <section id="statement" className="scroll-mt-20 sm:scroll-mt-24">
+          <SpatialCard glowColor="purple" tiltIntensity={2.5} className="p-5 sm:p-10 space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="space-y-1">
                 <span className="text-xs font-mono uppercase tracking-wider text-emerald">
                   {dict.statementSection.eyebrow}
                 </span>
-                <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink">
+                <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink leading-snug">
                   {dict.statementSection.title}
                 </h2>
-                <p className="text-sm text-ink-secondary max-w-2xl">
+                <p className="text-[13.5px] sm:text-sm text-ink-secondary max-w-2xl leading-relaxed">
                   {dict.statementSection.subtitle}
                 </p>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 w-full sm:w-auto">
                 <button
                   type="button"
                   onClick={() => setShowPreface((v) => !v)}
-                  className={`px-3.5 py-2 rounded-xl border text-xs font-semibold transition-colors flex items-center gap-1.5 ${
+                  className={`flex-1 sm:flex-initial justify-center px-3.5 py-2.5 rounded-xl border text-xs font-semibold transition-colors flex items-center gap-1.5 ${
                     showPreface
                       ? "bg-purple text-void border-purple"
                       : "bg-surface-elevated border-purple/35 text-purple hover:bg-purple/15"
                   }`}
                 >
-                  <BookOpen className="w-3.5 h-3.5" />
+                  <BookOpen className="w-3.5 h-3.5 shrink-0" />
                   <span>{dict.statementSection.prefaceBtn}</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowVerbatim((v) => !v)}
-                  className={`px-3.5 py-2 rounded-xl border text-xs font-semibold transition-colors flex items-center gap-1.5 ${
+                  className={`flex-1 sm:flex-initial justify-center px-3.5 py-2.5 rounded-xl border text-xs font-semibold transition-colors flex items-center gap-1.5 ${
                     showVerbatim
                       ? "bg-emerald text-void border-emerald"
                       : "bg-surface-elevated border-emerald/35 text-emerald hover:bg-emerald/15"
                   }`}
                 >
-                  <FileText className="w-3.5 h-3.5" />
+                  <FileText className="w-3.5 h-3.5 shrink-0" />
                   <span>{dict.statementSection.toggleBtn}</span>
                 </button>
               </div>
@@ -915,13 +935,13 @@ export default function HomePage() {
               {dict.statementSection.pillars.map((p: any) => (
                 <div
                   key={p.num}
-                  className="p-5 rounded-2xl bg-void/75 border border-white/10 space-y-2"
+                  className="p-4 sm:p-5 rounded-2xl bg-void/75 border border-white/10 space-y-2"
                 >
                   <div className="text-xs font-mono text-emerald">
                     {dict.statementSection.pillarPrefix} #{p.num}
                   </div>
-                  <h3 className="font-display font-bold text-base text-ink">{p.title}</h3>
-                  <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed">{p.body}</p>
+                  <h3 className="font-display font-bold text-base text-ink leading-snug">{p.title}</h3>
+                  <p className="text-[13.5px] sm:text-sm text-ink-secondary leading-[1.8] sm:leading-relaxed">{p.body}</p>
                 </div>
               ))}
             </div>
@@ -934,7 +954,7 @@ export default function HomePage() {
                   exit={{ opacity: 0, height: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="p-6 rounded-2xl bg-void border border-purple/35 space-y-3 text-sm text-ink-secondary leading-relaxed">
+                  <div className="p-5 sm:p-6 rounded-2xl bg-void border border-purple/35 space-y-3 text-[13.5px] sm:text-sm text-ink-secondary leading-[1.85] sm:leading-relaxed">
                     <div className="text-xs font-mono text-purple uppercase tracking-wider">
                       {dict.statementSection.prefaceHeader}
                     </div>
@@ -954,7 +974,7 @@ export default function HomePage() {
                   exit={{ opacity: 0, height: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="p-6 rounded-2xl bg-void border border-emerald/35 space-y-3 text-sm text-ink-secondary leading-relaxed">
+                  <div className="p-5 sm:p-6 rounded-2xl bg-void border border-emerald/35 space-y-3 text-[13.5px] sm:text-sm text-ink-secondary leading-[1.85] sm:leading-relaxed">
                     <div className="text-xs font-mono text-emerald uppercase tracking-wider">
                       {dict.statementSection.verbatimHeader}
                     </div>
@@ -971,12 +991,12 @@ export default function HomePage() {
         {/* ================================================================= */}
         {/* 9. CONTACT & ADMISSIONS QUICK INQUIRY COMPOSER                    */}
         {/* ================================================================= */}
-        <section id="contact" className="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <section id="contact" className="scroll-mt-20 sm:scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
           {/* Left 6 Cols: Verified Channels & Privacy Notice */}
           <SpatialCard
             glowColor="emerald"
             tiltIntensity={3}
-            className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between gap-6"
+            className="lg:col-span-6 p-5 sm:p-8 flex flex-col justify-between gap-6"
           >
             <div className="space-y-4">
               <div>
@@ -986,7 +1006,7 @@ export default function HomePage() {
                 <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-ink mt-1">
                   {dict.contact.title}
                 </h2>
-                <p className="text-sm text-ink-secondary mt-2 leading-relaxed">
+                <p className="text-[13.5px] sm:text-sm text-ink-secondary mt-2 leading-relaxed">
                   {dict.contact.desc}
                 </p>
               </div>
@@ -1012,7 +1032,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="px-3.5 py-2 rounded-xl bg-emerald text-void font-bold text-xs flex items-center justify-center gap-1.5 shrink-0 hover:bg-emerald-soft transition-colors"
+                  className="w-full sm:w-auto px-3.5 py-2.5 sm:py-2 rounded-xl bg-emerald text-void font-bold text-xs flex items-center justify-center gap-1.5 shrink-0 hover:bg-emerald-soft transition-colors"
                 >
                   {copiedEmail ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>
@@ -1064,14 +1084,14 @@ export default function HomePage() {
           <SpatialCard
             glowColor="techblue"
             tiltIntensity={3}
-            className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between gap-5"
+            className="lg:col-span-6 p-5 sm:p-8 flex flex-col justify-between gap-5"
           >
             <div className="space-y-4">
               <div>
-                <h3 className="font-display font-bold text-xl text-ink">
+                <h3 className="font-display font-bold text-lg sm:text-xl text-ink">
                   {dict.contact.composerTitle}
                 </h3>
-                <p className="text-xs sm:text-sm text-ink-secondary mt-1">
+                <p className="text-xs sm:text-sm text-ink-secondary mt-1 leading-relaxed">
                   {dict.contact.composerSubtitle}
                 </p>
               </div>
@@ -1084,7 +1104,7 @@ export default function HomePage() {
                   <select
                     value={inquiryTopic}
                     onChange={(e) => setInquiryTopic(e.target.value as any)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-void border border-white/15 text-sm text-ink focus:outline-none focus:border-emerald"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-void border border-white/15 text-base sm:text-sm text-ink focus:outline-none focus:border-emerald"
                   >
                     <option value="interview">{dict.contact.optInterview}</option>
                     <option value="code">{dict.contact.optCode}</option>
@@ -1101,7 +1121,7 @@ export default function HomePage() {
                     value={inquirySender}
                     onChange={(e) => setInquirySender(e.target.value)}
                     placeholder={dict.contact.senderPlaceholder}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-void border border-white/15 text-sm text-ink focus:outline-none focus:border-emerald"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-void border border-white/15 text-base sm:text-sm text-ink focus:outline-none focus:border-emerald"
                   />
                 </div>
 
@@ -1113,30 +1133,30 @@ export default function HomePage() {
                     rows={4}
                     readOnly
                     value={generatedMessage}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-void/90 border border-white/10 text-xs sm:text-sm text-ink-secondary font-sans leading-relaxed focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-void/90 border border-white/10 text-[13.5px] sm:text-sm text-ink-secondary font-sans leading-relaxed focus:outline-none"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
               <button
                 type="button"
                 onClick={handleMailto}
-                className="px-5 py-2.5 rounded-xl bg-emerald text-void font-bold text-xs sm:text-sm flex items-center gap-2 hover:bg-emerald-soft transition-colors"
+                className="flex-1 sm:flex-initial justify-center px-5 py-2.5 rounded-xl bg-emerald text-void font-bold text-xs sm:text-sm flex items-center gap-2 hover:bg-emerald-soft transition-colors"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 shrink-0" />
                 <span>{dict.contact.btnMailto}</span>
               </button>
               <button
                 type="button"
                 onClick={handleCopyMessage}
-                className="px-4 py-2.5 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-white/15 text-xs sm:text-sm font-semibold text-ink flex items-center gap-2 transition-colors"
+                className="flex-1 sm:flex-initial justify-center px-4 py-2.5 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-white/15 text-xs sm:text-sm font-semibold text-ink flex items-center gap-2 transition-colors"
               >
                 {copiedMsg ? (
-                  <Check className="w-4 h-4 text-emerald" />
+                  <Check className="w-4 h-4 text-emerald shrink-0" />
                 ) : (
-                  <Copy className="w-4 h-4 text-emerald" />
+                  <Copy className="w-4 h-4 text-emerald shrink-0" />
                 )}
                 <span>
                   {copiedMsg ? (isTh ? "คัดลอกข้อความแล้ว" : "Message Copied") : dict.contact.btnCopyMsg}

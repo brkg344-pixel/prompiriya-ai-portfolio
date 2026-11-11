@@ -30,6 +30,7 @@ export function Navbar({
 }) {
   const { lang, setLang, reducedMotion, setReducedMotion, dict } = useLanguage();
   const { scrollYProgress } = useScroll();
+  const mobileNavRef = React.useRef<HTMLElement>(null);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 140,
     damping: 28,
@@ -48,6 +49,18 @@ export function Navbar({
     { id: "contact", title: dict.nav.tabs[8].label, icon: Mail },
   ];
 
+  // Auto-center active tab in the mobile/tablet bottom navigation bar
+  React.useEffect(() => {
+    const container = mobileNavRef.current;
+    if (!container) return;
+    const activeBtn = container.querySelector<HTMLElement>(`[data-tab-id="${activeSection}"]`);
+    if (activeBtn) {
+      const scrollLeft =
+        activeBtn.offsetLeft - container.clientWidth / 2 + activeBtn.clientWidth / 2;
+      container.scrollTo({ left: scrollLeft, behavior: reducedMotion ? "auto" : "smooth" });
+    }
+  }, [activeSection, reducedMotion]);
+
   const handleTabChange = (id: string) => {
     if (onNavigateSection) {
       onNavigateSection(id);
@@ -63,31 +76,33 @@ export function Navbar({
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 bg-canvas/80 backdrop-blur-2xl border-b border-white/10">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-canvas/85 backdrop-blur-2xl border-b border-white/10">
         {/* Live Scroll Telemetry Bar */}
         {!reducedMotion && (
           <motion.div
             style={{ scaleX }}
-            className="h-[2px] bg-gradient-to-r from-emerald via-purple to-techblue origin-left"
+            className="h-[2.5px] bg-gradient-to-r from-emerald via-purple to-techblue origin-left"
           />
         )}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-emerald/25 via-purple/20 to-techblue/25 border border-emerald/40 flex items-center justify-center shadow-[0_0_20px_-4px_rgba(53,230,161,0.35)] group-hover:scale-105 transition-transform">
-              <span className="font-display font-extrabold text-emerald text-base">BP</span>
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald animate-pulse" />
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between gap-2 sm:gap-3">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-emerald/25 via-purple/20 to-techblue/25 border border-emerald/40 flex items-center justify-center shadow-[0_0_20px_-4px_rgba(53,230,161,0.35)] group-hover:scale-105 transition-transform shrink-0">
+              <span className="font-display font-extrabold text-emerald text-sm sm:text-base">BP</span>
+              <span className="absolute -top-1 -right-1 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald animate-pulse" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="font-display font-bold text-sm sm:text-base text-ink group-hover:text-emerald transition-colors">
+                <span className="font-display font-bold text-xs sm:text-base text-ink group-hover:text-emerald transition-colors truncate">
                   {dict.nav.name}
                 </span>
-                <span className="px-1.5 py-0.5 text-[11px] font-mono font-semibold rounded bg-emerald/15 text-emerald border border-emerald/30 hidden sm:inline-block">
+                <span className="px-1.5 py-0.5 text-[10px] sm:text-[11px] font-mono font-semibold rounded bg-emerald/15 text-emerald border border-emerald/30 shrink-0">
                   {dict.nav.nick}
                 </span>
               </div>
-              <p className="text-[11px] text-ink-secondary">{dict.nav.subtitle}</p>
+              <p className="text-[10px] sm:text-[11px] text-ink-secondary truncate">
+                {dict.nav.subtitle}
+              </p>
             </div>
           </Link>
 
@@ -95,7 +110,7 @@ export function Navbar({
             <ExpandableTabs tabs={tabs} activeId={activeSection} onChange={handleTabChange} />
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <div className="hidden md:flex items-center gap-1">
               {PROJECTS_CASE_STUDIES.map((p, idx) => (
                 <Link
@@ -113,9 +128,10 @@ export function Navbar({
               <button
                 type="button"
                 onClick={onOpenAudit}
-                className="px-2.5 py-1.5 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-white/10 hover:border-techblue/40 text-xs font-medium text-ink-secondary hover:text-ink flex items-center gap-1.5 transition-all"
+                aria-label={dict.nav.auditBtn}
+                className="h-9 px-2.5 sm:px-3 rounded-xl bg-surface-elevated hover:bg-surface-hover border border-white/10 hover:border-techblue/40 text-xs font-medium text-ink-secondary hover:text-ink flex items-center gap-1.5 transition-all"
               >
-                <ShieldCheck className="w-4 h-4 text-techblue" />
+                <ShieldCheck className="w-4 h-4 text-techblue shrink-0" />
                 <span className="hidden sm:inline">{dict.nav.auditBtn}</span>
               </button>
             )}
@@ -124,7 +140,7 @@ export function Navbar({
               type="button"
               onClick={() => setReducedMotion((prev) => !prev)}
               aria-pressed={reducedMotion}
-              className={`p-2 rounded-xl border transition-all ${
+              className={`h-9 w-9 flex items-center justify-center rounded-xl border transition-all ${
                 reducedMotion
                   ? "bg-amber-500/20 border-amber-400/40 text-amber-300"
                   : "bg-surface-elevated hover:bg-surface-hover border-white/10 text-ink-secondary hover:text-emerald"
@@ -138,11 +154,11 @@ export function Navbar({
               <Zap className="w-4 h-4" />
             </button>
 
-            <div className="flex items-center p-0.5 rounded-xl bg-surface-elevated border border-white/15">
+            <div className="flex items-center p-0.5 rounded-xl bg-surface-elevated border border-white/15 h-9">
               <button
                 type="button"
                 onClick={() => setLang("th")}
-                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                className={`px-2 sm:px-2.5 h-full rounded-lg text-xs font-bold transition-all ${
                   lang === "th"
                     ? "bg-emerald text-void shadow"
                     : "text-ink-secondary hover:text-ink"
@@ -153,7 +169,7 @@ export function Navbar({
               <button
                 type="button"
                 onClick={() => setLang("en")}
-                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                className={`px-2 sm:px-2.5 h-full rounded-lg text-xs font-bold transition-all ${
                   lang === "en"
                     ? "bg-emerald text-void shadow"
                     : "text-ink-secondary hover:text-ink"
@@ -166,32 +182,36 @@ export function Navbar({
         </div>
       </header>
 
-      {/* Mobile Floating Bottom Command Bar (< xl) */}
-      <nav
-        aria-label="Quick mobile navigation"
-        className="fixed bottom-3 left-1/2 -translate-x-1/2 z-40 xl:hidden max-w-[95vw] overflow-x-auto px-2.5 py-1.5 rounded-2xl bg-void/85 backdrop-blur-2xl border border-white/15 shadow-[0_12px_36px_rgba(0,0,0,0.75)] flex items-center gap-1"
-      >
-        {tabs.map((tab) => {
-          if (tab.type === "separator") return null;
-          const Icon = tab.icon;
-          const isActive = activeSection === tab.id;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => handleTabChange(tab.id)}
-              className={`px-2.5 py-1.5 rounded-xl text-[11px] font-medium flex items-center gap-1.5 shrink-0 transition-all ${
-                isActive
-                  ? "bg-emerald text-void font-bold shadow"
-                  : "text-ink-secondary hover:text-ink"
-              }`}
-            >
-              <Icon className="w-3.5 h-3.5" />
-              <span className={isActive ? "inline" : "hidden sm:inline"}>{tab.title}</span>
-            </button>
-          );
-        })}
-      </nav>
+      {/* Mobile & Tablet Floating Bottom Navigation Dock (< xl) */}
+      <div className="fixed bottom-0 inset-x-0 z-40 xl:hidden pointer-events-none px-2.5 pb-[max(0.65rem,env(safe-area-inset-bottom))] pt-2 bg-gradient-to-t from-void/95 via-void/60 to-transparent">
+        <nav
+          ref={mobileNavRef}
+          aria-label="Quick mobile navigation"
+          className="pointer-events-auto mx-auto max-w-fit overflow-x-auto no-scrollbar px-2 py-1.5 rounded-2xl bg-surface/95 backdrop-blur-2xl border border-white/15 shadow-[0_12px_36px_rgba(0,0,0,0.85)] flex items-center gap-1"
+        >
+          {tabs.map((tab) => {
+            if (tab.type === "separator") return null;
+            const Icon = tab.icon;
+            const isActive = activeSection === tab.id;
+            return (
+              <button
+                key={tab.id}
+                data-tab-id={tab.id}
+                type="button"
+                onClick={() => handleTabChange(tab.id)}
+                className={`h-9 px-3 rounded-xl text-xs font-medium flex items-center gap-1.5 shrink-0 transition-all ${
+                  isActive
+                    ? "bg-emerald text-void font-bold shadow-[0_0_16px_rgba(53,230,161,0.35)]"
+                    : "text-ink-secondary hover:text-ink active:bg-white/10"
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5 shrink-0" />
+                <span className="whitespace-nowrap">{tab.title}</span>
+              </button>
+            );
+          })}
+        </nav>
+      </div>
     </>
   );
 }
